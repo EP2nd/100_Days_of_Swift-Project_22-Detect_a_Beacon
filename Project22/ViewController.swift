@@ -13,6 +13,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     var locationManager: CLLocationManager?
     
+    // Challenge 1:
+    var firstBeaconDetectedtAlertShown: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -68,6 +71,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
         if let beacon = beacons.first {
+            // Challenge 1:
+            if firstBeaconDetectedtAlertShown == false {
+                let ac = UIAlertController(title: "Beacon detected", message: "Follow the clues if you wish to get near it.", preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "OK", style: .default))
+                present(ac, animated: true)
+                firstBeaconDetectedtAlertShown = true
+            }
             update(distance: beacon.proximity)
         } else {
             update(distance: .unknown)
