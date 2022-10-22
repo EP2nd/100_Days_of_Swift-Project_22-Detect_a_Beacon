@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -18,8 +17,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wTb-Fa-uVh">
-                                <rect key="frame" x="150.66666666666666" y="404.66666666666669" width="89" height="48"/>
+                                <rect key="frame" x="150.66666666666666" y="404.33333333333331" width="89" height="48.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No beacon detected" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0pR-b0-exS">
+                                <rect key="frame" x="117" y="460" width="156" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Kdp-w3-qgJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -27,11 +35,15 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="0pR-b0-exS" secondAttribute="bottom" constant="329" id="OG7-iy-gxG"/>
+                            <constraint firstItem="0pR-b0-exS" firstAttribute="top" secondItem="wTb-Fa-uVh" secondAttribute="bottom" constant="7.3333333333333144" id="ekX-TK-EPU"/>
+                            <constraint firstItem="0pR-b0-exS" firstAttribute="centerX" secondItem="wTb-Fa-uVh" secondAttribute="centerX" id="iwe-We-BPf"/>
                             <constraint firstItem="wTb-Fa-uVh" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="m68-Sd-bE5"/>
                             <constraint firstItem="wTb-Fa-uVh" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="nHF-D9-EXB"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="beaconName" destination="0pR-b0-exS" id="vMu-Yq-7kn"/>
                         <outlet property="distanceReading" destination="wTb-Fa-uVh" id="BWc-Nx-fcr"/>
                     </connections>
                 </viewController>
