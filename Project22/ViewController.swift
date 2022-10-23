@@ -13,6 +13,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     // Challenge 2:
     @IBOutlet var beaconName: UILabel!
     var currentBeaconUUID: UUID?
+    // Challenge 3:
+    @IBOutlet var proximityDot: UIView!
     
     var locationManager: CLLocationManager?
     
@@ -29,6 +31,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         view.backgroundColor = .gray
         distanceReading.text = "UNKNOWN"
         beaconName.text = "No beacon detected"
+        // Challenge 3:
+        proximityDot.layer.cornerRadius = 148
+        proximityDot.backgroundColor = .black
+        proximityDot.transform = CGAffineTransform(scaleX: 0.001, y: 0.001)
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -64,18 +70,26 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             case .far:
                 self.view.backgroundColor = .blue
                 self.distanceReading.text = "FAR"
+                // Challenge 3:
+                self.proximityDot.transform = CGAffineTransform(scaleX: 0.25, y: 0.25)
                 
             case .near:
                 self.view.backgroundColor = .orange
                 self.distanceReading.text = "NEAR"
+                // Challenge 3:
+                self.proximityDot.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
                 
             case .immediate:
                 self.view.backgroundColor = .red
                 self.distanceReading.text = "RIGHT HERE"
+                // Challenge 3:
+                self.proximityDot.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
                 
             default:
                 self.view.backgroundColor = .gray
                 self.distanceReading.text = "UNKNOWN"
+                // Challenge 3:
+                self.proximityDot.transform = CGAffineTransform(scaleX: 0.001, y: 0.001)
             }
         }
     }
