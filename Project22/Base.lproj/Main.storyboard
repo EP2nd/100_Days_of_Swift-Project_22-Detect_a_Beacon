@@ -17,15 +17,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wTb-Fa-uVh">
-                                <rect key="frame" x="150.66666666666666" y="404.33333333333331" width="89" height="48.333333333333314"/>
+                                <rect key="frame" x="151" y="404.33333333333331" width="88" height="48.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No beacon detected" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0pR-b0-exS">
-                                <rect key="frame" x="117" y="460" width="156" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0pR-b0-exS">
+                                <rect key="frame" x="174" y="460" width="42" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="Kdp-w3-qgJ"/>
+                                    <constraint firstAttribute="height" constant="21" id="fbY-67-MZm"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -35,11 +35,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="0pR-b0-exS" secondAttribute="bottom" constant="329" id="OG7-iy-gxG"/>
-                            <constraint firstItem="0pR-b0-exS" firstAttribute="top" secondItem="wTb-Fa-uVh" secondAttribute="bottom" constant="7.3333333333333144" id="ekX-TK-EPU"/>
-                            <constraint firstItem="0pR-b0-exS" firstAttribute="centerX" secondItem="wTb-Fa-uVh" secondAttribute="centerX" id="iwe-We-BPf"/>
-                            <constraint firstItem="wTb-Fa-uVh" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="m68-Sd-bE5"/>
-                            <constraint firstItem="wTb-Fa-uVh" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="nHF-D9-EXB"/>
+                            <constraint firstItem="wTb-Fa-uVh" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="0f4-uy-oU1"/>
+                            <constraint firstItem="0pR-b0-exS" firstAttribute="centerX" secondItem="wTb-Fa-uVh" secondAttribute="centerX" id="MOv-91-yct"/>
+                            <constraint firstItem="0pR-b0-exS" firstAttribute="top" secondItem="wTb-Fa-uVh" secondAttribute="bottom" constant="7.3333333333333144" id="ZLg-Rc-u8p"/>
+                            <constraint firstItem="wTb-Fa-uVh" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="cSM-WB-lSx"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="0pR-b0-exS" secondAttribute="bottom" constant="329" id="p3f-X4-9Pn"/>
                         </constraints>
                     </view>
                     <connections>

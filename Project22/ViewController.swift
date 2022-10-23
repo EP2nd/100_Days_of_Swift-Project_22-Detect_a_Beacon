@@ -12,8 +12,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet var distanceReading: UILabel!
     // Challenge 2:
     @IBOutlet var beaconName: UILabel!
-    // Challenge 2:
     var currentBeaconUUID: UUID?
+    
     var locationManager: CLLocationManager?
     
     // Challenge 1:
@@ -52,13 +52,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     // Challenge 2:
     func startScanning() {
         addBeacon(uuidString: "5A4BCFCE-174E-4BAC-A814-092E77F6B7E5", major: 123, minor: 456, identifier: "Ed")
-        addBeacon(uuidString: "E2C56DB5-DFFB-48D2-B060-D0F5A71096E0", major: 789, minor: 123, identifier: "Edd")
-        addBeacon(uuidString: "74278BDA-B644-4520-8F0C-720EAF059935", major: 456, minor: 789, identifier: "Eddy")
+        addBeacon(uuidString: "E2C56DB5-DFFB-48D2-B060-D0F5A71096E0", major: 789, minor: 135, identifier: "Edd")
+        addBeacon(uuidString: "74278BDA-B644-4520-8F0C-720EAF059935", major: 792, minor: 468, identifier: "Eddy")
     }
     
-    func update(distance: CLProximity, identifier: String) {
+    func update(distance: CLProximity/*, identifier: String*/) {
         UIView.animate(withDuration: 0.8) {
-            self.beaconName.text = "\(identifier)"
+            //self.beaconName.text = identifier
             
             switch distance {
             case .far:
@@ -76,15 +76,24 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             default:
                 self.view.backgroundColor = .gray
                 self.distanceReading.text = "UNKNOWN"
-                self.beaconName.text = "No beacon detected."
             }
         }
     }
-    
+
     func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
         if let beacon = beacons.first {
+            // Challenge 2:
             if currentBeaconUUID == nil { currentBeaconUUID = region.uuid }
-            //guard currentBeaconUUID == region.uuid else { return }
+            
+            // I had to use the following conditional statement to display the identifier in current beacon's name label because, due to differences between the deprecated part of code and the updated one I switched to (I presume so), it was somehow not possible to read the "identifier" property.
+            if region.uuid == UUID(uuidString: "5A4BCFCE-174E-4BAC-A814-092E77F6B7E5") {
+                beaconName.text = "Ed"
+            } else if region.uuid == UUID(uuidString: "E2C56DB5-DFFB-48D2-B060-D0F5A71096E0") {
+                beaconName.text = "Edd"
+            } else if region.uuid == UUID(uuidString: "74278BDA-B644-4520-8F0C-720EAF059935") {
+                beaconName.text = "Eddy"
+            }
+            
             // Challenge 1:
             if firstBeaconDetectedtAlertShown == false {
                 let ac = UIAlertController(title: "Beacon detected", message: "Follow the clues if you wish to get near it.", preferredStyle: .alert)
@@ -92,11 +101,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 present(ac, animated: true)
                 firstBeaconDetectedtAlertShown = true
             }
-            update(distance: beacon.proximity, identifier: region.identifier)
+            update(distance: beacon.proximity/*, identifier: region.identifier*/)
         } else {
+            // Challenge 2:
             guard currentBeaconUUID == region.uuid else { return }
             currentBeaconUUID = nil
-            update(distance: .unknown, identifier: "No beacon detected.")
+            beaconName.text = "No beacon detected."
+            update(distance: .unknown/*, identifier: "No beacon detected."*/)
         }
     }
 }
